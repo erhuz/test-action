@@ -11,6 +11,8 @@ jobs:
     # This job runs on Linux
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Start container
         run: docker-compose -f docker-compose.ci.yml up -d --build
 
