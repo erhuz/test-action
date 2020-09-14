@@ -13,6 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Check current directory
+        run: pwd
+
+      - name: Change to new directory
+        run: cd /usr/src/app
+
+      - name: Check new directory
+        run: pwd
+
       - name: Start container
         run: docker-compose -f docker-compose.ci.yml up -d --build
 
