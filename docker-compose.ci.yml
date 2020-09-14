@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  test_service:
+    build:
+      context: /usr/src/app
+      dockerfile: /usr/src/app/Dockerfile
+    working_dir: /usr/src/app
+    ports:
+      - 3000:3000
