@@ -1,0 +1,22 @@
+name: Test docker image
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches: [ master ]
+
+###################################
+jobs:
+  build:
+    # Job name is Greeting
+    name: Test image
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start container
+        run: docker-compose -f docker-compose.yml up -d --build
+
+      - name: Check application availability
+        run: curl 127.0.0.1:3000
+
+      - name: Stop container
+        run: docker-compose down
